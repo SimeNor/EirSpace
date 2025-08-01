@@ -1,0 +1,15 @@
+services:
+  app:
+    container_name: EirThings
+    build:
+      dockerfile: Dockerfile
+    command: python3 app/app.py
+    privileged: true
+    environment:
+      - EXEC_MODE=TEST
+      - VAULT_ROOT=../data
+    volumes:
+      - .:/app
+      - ../data/eirthings:/data
+    ports:
+      - "8000:8000"

@@ -1,0 +1,8 @@
+{
+    "class": "BowlScale",
+    "properties": {
+        "identifier": "food_bowl",
+        "dout_pin": 5,
+        "pd_sck_pin": 6
+    }
+}
