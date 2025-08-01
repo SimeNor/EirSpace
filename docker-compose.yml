@@ -1,0 +1,19 @@
+services:
+  sqlite:
+    container_name: EirBase
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: eirbase
+      POSTGRES_HOST: postgres
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+      - ../data/eirbase:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  app:
+    container_name: eirport
+    build: apps/EirPort
+    ports:
+      - 8501:8501
